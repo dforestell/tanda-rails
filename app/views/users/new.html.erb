@@ -1,6 +1,6 @@
-<div class="signup-form">
+<div class="user-form">
 	<h1>Sign Up</h1>
-	<%= form_with model: @user do |f| %>
+	<%= form_with model: @user, local: true do |f| %>
 	<div>
         <%= f.label :Name %>
 		<%= f.text_field :name%>

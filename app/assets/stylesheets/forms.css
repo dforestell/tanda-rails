@@ -1,11 +1,12 @@
-.signup-form {
+.user-form {
   margin-left: 15px;
 }
 
-.signup-form label {
+.user-form label {
   display: block;
 }
 
-.signup-form input {
+.user-form input {
+  margin-top: 2px;
   margin-bottom: 5px;
 }

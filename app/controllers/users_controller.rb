@@ -12,7 +12,7 @@ class UsersController < ApplicationController
             redirect_to organizations_path
         else
             flash[:error] = @user.errors.full_messages.to_sentence
-            redirect_to new_user_path
+            render :new
         end
     end
 
