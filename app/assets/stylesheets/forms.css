@@ -1,0 +1,11 @@
+.signup-form {
+  margin-left: 15px;
+}
+
+.signup-form label {
+  display: block;
+}
+
+.signup-form input {
+  margin-bottom: 5px;
+}
