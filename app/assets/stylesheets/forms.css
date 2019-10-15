@@ -1,0 +1,12 @@
+.user-form {
+  margin-left: 15px;
+}
+
+.user-form label {
+  display: block;
+}
+
+.user-form input {
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
