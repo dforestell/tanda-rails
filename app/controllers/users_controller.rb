@@ -11,8 +11,21 @@ class UsersController < ApplicationController
             flash[:success] = "You have successfully Signed up"
             redirect_to organizations_path
         else
-            flash[:error] = @user.errors.full_messages.to_sentence
+            @errors = @user.errors.full_messages
             render :new
+        end
+    end
+
+    def update
+        @user = User.find(params[:id])
+        if @user.organization_id == nil
+            p "in the if"
+            @user.organization_id = params[:organization_id]
+            @user.save(:validate => false)
+            redirect_to organization_path(@user.organization)
+        else
+            flash[:error] = "You are already employed, please leave your other job first"
+            redirect_to organizations_path
         end
     end
 

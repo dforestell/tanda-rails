@@ -1,0 +1,16 @@
+<h3>Edit Organization</h3>
+<%= form_with url: organization_path(@organization), method: :patch, local: true do |f| %>
+<div>
+    <%= f.label :Name %>
+    <%= f.text_field :name, value: @organization.name%>
+</div>
+
+<div>
+    <%= f.label :Hourly_rate %> $
+    <%= f.text_field :hourly_rate, value: @organization.hourly_rate%>
+</div>
+
+<div>
+    <%= f.submit "Update" %>
+</div>
+<% end %>

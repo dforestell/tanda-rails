@@ -1,0 +1,22 @@
+<% if current_user.organization_id == nil %> 
+    <p>You are not a member of any Organization.  Join one or start your own!</p>
+<% end %>
+<h1>Organizations</h1>
+<%= render @organizations %>
+
+<h3>Create Organization</h3>
+<%= form_with url: organizations_path, local: true do |f| %>
+<div>
+    <%= f.label :Name %>
+    <%= f.text_field :name%>
+</div>
+
+<div>
+    <%= f.label :Hourly_rate %> $
+    <%= f.text_field :hourly_rate%>
+</div>
+
+<div>
+    <%= f.submit "Create and Join" %>
+</div>
+<% end %>

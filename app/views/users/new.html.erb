@@ -1,5 +1,12 @@
 <div class="user-form">
 	<h1>Sign Up</h1>
+	<% if @errors %>
+		<ul>
+		<% @errors.each do |error| %>
+			<li class="error"><%= error %> </li>
+		<% end %>
+		</ul>
+	<%end%>
 	<%= form_with model: @user, local: true do |f| %>
 	<div>
         <%= f.label :Name %>
