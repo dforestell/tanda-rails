@@ -9,12 +9,32 @@
     <th>Shift Cost</th>
   </tr>
   <%= render @shifts %>
+
+  <tr>
+    <%= form_with url: organization_shifts_path(@organization) , local: true do |f| %>
+    <td>
+      <%= current_user.name %>
+    </td>
+    <td>
+      <%= f.date_select :date, :order => [:month, :day, :year] %>
+    </td>
+
+    <td>
+      <%= f.time_select :start %>
+    </td>
+
+    <td>
+      <%= f.time_select :finish %>
+    </td>
+
+    <td>
+      <%= f.text_field :break %>
+    </td>
+
+    <td colspan="2">
+      <%= f.submit "Create Shift" %>
+    </td>
+  <tr>
 </table>
 
-<%= form_with url: login_path, local: true do |f| %>
-<%= f.text_field :date_of_tour, data:{ provide:'datepicker' } %>
-
-	<div>
-		<%= f.submit "Log In" %>
-	</div>
 	<% end %>
