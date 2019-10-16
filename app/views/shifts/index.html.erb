@@ -11,3 +11,10 @@
   <%= render @shifts %>
 </table>
 
+<%= form_with url: login_path, local: true do |f| %>
+<%= f.text_field :date_of_tour, data:{ provide:'datepicker' } %>
+
+	<div>
+		<%= f.submit "Log In" %>
+	</div>
+	<% end %>
