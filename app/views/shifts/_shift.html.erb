@@ -5,5 +5,5 @@
     <td><%= shift.time(shift.finish) %></td> 
     <td><%= shift.break %></td>
     <td><%= shift.hours %></td>
-    <td>$<%= (shift.hours * @organization.hourly_rate).round(2) %></td>
+    <td><%= number_to_currency((shift.hours * @organization.hourly_rate).round(2)) %></td>
 </tr>
