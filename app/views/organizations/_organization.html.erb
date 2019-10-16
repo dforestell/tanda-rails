@@ -1,4 +1,5 @@
 <div class="listed-org">
     <%= organization.name%>
     <%=link_to "Edit", edit_organization_path(organization)  %>
+    <%= link_to "Join", organization_user_path(organization, current_user), method: :put %>
 </div>

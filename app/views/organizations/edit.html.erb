@@ -1,5 +1,5 @@
 <h3>Edit Organization</h3>
-<%= form_with url: organization_path(@organization), method: :put, local: true do |f| %>
+<%= form_with url: organization_path(@organization), method: :patch, local: true do |f| %>
 <div>
     <%= f.label :Name %>
     <%= f.text_field :name, value: @organization.name%>
