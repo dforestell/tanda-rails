@@ -1,1 +1,3 @@
 <h2><%= @organization.name%></h2>
+<%=link_to "Edit", edit_organization_path(@organization)  %>
+<%=link_to "Leave", leave_org_path(current_user), method: :put  %>

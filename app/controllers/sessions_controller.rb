@@ -4,7 +4,11 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id
-            redirect_to organizations_path
+            if @user.organization_id == nil
+                redirect_to organizations_path
+            else
+                redirect_to organization_path(@user.organization)
+            end
         else 
             @error = "Invalid credentials"
             render :new

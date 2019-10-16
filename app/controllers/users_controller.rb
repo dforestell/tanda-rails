@@ -29,6 +29,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def leave
+        current_user.organization_id = nil
+        current_user.save(:validate => false)
+        flash[:success] = "You have left the organization"
+        redirect_to organizations_path
+    end
+
 
 
     private 
