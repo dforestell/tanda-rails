@@ -11,7 +11,7 @@ class UsersController < ApplicationController
             flash[:success] = "You have successfully Signed up"
             redirect_to organizations_path
         else
-            flash[:error] = @user.errors.full_messages.to_sentence
+            @errors = @user.errors.full_messages
             render :new
         end
     end
