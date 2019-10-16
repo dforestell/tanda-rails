@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.organization_id == nil
-            p "in the if"
             @user.organization_id = params[:organization_id]
             @user.save(:validate => false)
             redirect_to organization_path(@user.organization)
