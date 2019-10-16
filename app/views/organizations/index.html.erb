@@ -1,3 +1,6 @@
+<% if current_user.organization_id == nil %> 
+    <p>You are not a member of any Organization.  Join one or start your own!</p>
+<% end %>
 <h1>Organizations</h1>
 <%= render @organizations %>
 
