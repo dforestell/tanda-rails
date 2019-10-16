@@ -1,1 +1,9 @@
-<p> <%= shift.user.name%> <%= shift.date %> <%= shift.time(shift.start) %> <%= shift.time(shift.finish) %> <%= shift.break %></p>
+<tr> 
+    <td><%= shift.user.name%></td>
+    <td><%= shift.date %></td> 
+    <td><%= shift.time(shift.start) %></td> 
+    <td><%= shift.time(shift.finish) %></td> 
+    <td><%= shift.break %></td>
+    <td><%= shift.hours %></td>
+    <td>$<%= (shift.hours * @organization.hourly_rate).round(2) %></td>
+</tr>
