@@ -1,0 +1,9 @@
+<tr> 
+    <td><%= shift.user.name%></td>
+    <td><%= shift.date %></td> 
+    <td><%= shift.time(shift.start) %></td> 
+    <td><%= shift.time(shift.finish) %></td> 
+    <td><%= shift.break %></td>
+    <td><%= shift.hours %></td>
+    <td><%= number_to_currency((shift.hours * @organization.hourly_rate).round(2)) %></td>
+</tr>
