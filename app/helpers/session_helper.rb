@@ -10,5 +10,9 @@ module SessionHelper
 
 	def authenticate!
     	redirect_to login_path unless logged_in?
-  	end
+	end
+
+	def yours?
+		redirect_back(fallback_location: organization_shifts_path(@organization, @shift)) unless current_user.id == @shift.user_id
+	end
 end

@@ -27,11 +27,13 @@ class ShiftsController < ApplicationController
     def edit
         @shift = Shift.find(params[:id])
         @organization = Organization.find(params[:organization_id])
+        redirect_back(fallback_location: organization_shifts_path(@organization, @shift)) unless current_user.id == @shift.user_id
     end
 
     def update
         @shift = Shift.find(params[:id])
-                @date = "#{params['date(3i)']}/#{params['date(2i)']}/#{params['date(1i)']}"
+        redirect_back(fallback_location: organization_shifts_path(@organization, @shift)) unless current_user.id == @shift.user_id
+        @date = "#{params['date(3i)']}/#{params['date(2i)']}/#{params['date(1i)']}"
         @start = @date + " #{params['start(4i)']}:#{params['start(5i)']}"
         @finish = @date + " #{params['finish(4i)']}:#{params['finish(5i)']}"
         @shift.start = @start.to_datetime
@@ -48,8 +50,10 @@ class ShiftsController < ApplicationController
 
     def destroy
         @shift = Shift.find(params[:id])
-        @shift.destroy
-        redirect_to organization_shifts_path(params[:organization_id])
+        if current_user.id == @shift.user_id
+            @shift.destroy
+        end
+            redirect_to organization_shifts_path(params[:organization_id])
     end
 
 end
