@@ -25,6 +25,7 @@ class ShiftsController < ApplicationController
                 redirect_to organization_shifts_path(params[:organization_id])
             end
         else
+            flash[:error] = "You don't work here!"
             redirect_back(fallback_location: organizations_path)
         end
     end
