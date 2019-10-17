@@ -1,7 +1,7 @@
 <h2><%= @organization.name%></h2>
 <%=link_to "Shifts", organization_shifts_path(@organization) %>
 <%=link_to "Edit", edit_organization_path(@organization)  %>
-<% if %>
+<% if current_user.organization_id == @organization.id %>
     <%=link_to "Leave", leave_org_path(current_user), method: :put  %>
 <% end %>
 

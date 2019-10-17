@@ -1,10 +1,12 @@
 class ShiftsController < ApplicationController
     def index
+        authenticate!
         @organization = Organization.find(params[:organization_id])
         @shifts = @organization.shifts.order(:start)
     end
 
     def create
+        authenticate!
         @shift = Shift.new
         @shift.user = current_user
         @date = "#{params['date(3i)']}/#{params['date(2i)']}/#{params['date(1i)']}"
