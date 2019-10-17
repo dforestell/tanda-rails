@@ -13,7 +13,9 @@ class Shift < ApplicationRecord
 
     def hours
         math = (self.finish - self.start)
-        # divide out seconds and minutes to get result in hours
-        (math / 60 / 60).round(4)
+        # divide out seconds then subrtract break time
+        math = (math / 60) - self.break.to_i
+        #convert to hours
+        (math / 60).round(4)
     end
 end
