@@ -6,4 +6,6 @@
     <td><%= shift.break %></td>
     <td><%= shift.hours %></td>
     <td><%= number_to_currency((shift.hours * @organization.hourly_rate).round(2)) %></td>
+    <td><%= link_to 'Edit', edit_organization_shift_path(@organization, shift) %></td>
+     <td><%= link_to 'Delete', organization_shift_path(@organization, shift), method: :delete %></td>
 </tr>
