@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :users, only: [:create]
   get 'signup', to: 'users#new'
-  resources :organizations
+  resources :organizations, except: [:new]
   resources :organizations, only: [:show] do
     resources :users, only: [:update]
-    resources :shifts, only: [:index, :new, :create]
+    resources :shifts, only: [:index, :create]
   end
    get 'login', to: 'sessions#new'
    post 'login', to: 'sessions#create'

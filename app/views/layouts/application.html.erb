@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <% if !current_user %>
+      <h1><%= link_to 'Adnat', login_path %></h1>
+    <% else  %>
+      <% if current_user.organization_id == nil %>
+          <h1><%= link_to 'Adnat', organizations_path %></h1>
+      <% else  %>
+        <h1><%= link_to 'Adnat', organization_path(current_user.organization) %></h1>
+      <% end %>
+      
+    <% end %>
+
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>

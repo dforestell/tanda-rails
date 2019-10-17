@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
     def show
+        authenticate!
         @organization = Organization.find(params[:id])
     end
 
@@ -8,10 +9,12 @@ class OrganizationsController < ApplicationController
     end
 
     def edit
+        authenticate!
         @organization = Organization.find(params[:id])
     end
 
     def update
+        authenticate!
         @organization = Organization.find(params[:id])
         @organization.name = params[:name]
         @organization.hourly_rate = params[:hourly_rate]        
@@ -24,6 +27,7 @@ class OrganizationsController < ApplicationController
     end
 
     def create 
+        authenticate!
         if current_user.organization_id != nil
             flash[:error] = "Please quit your current job before starting a business"
             redirect_to organizations_path
