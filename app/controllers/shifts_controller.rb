@@ -6,8 +6,8 @@ class ShiftsController < ApplicationController
     end
 
     def create
-        authenticate!
         @shift = Shift.new
+        redirect_back if current_user.organization_id != params[:organization_id]
         @shift.user = current_user
         @date = "#{params['date(3i)']}/#{params['date(2i)']}/#{params['date(1i)']}"
         @start = @date + " #{params['start(4i)']}:#{params['start(5i)']}"
