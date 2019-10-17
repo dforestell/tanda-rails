@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :organizations, except: [:new]
   resources :organizations, only: [:show] do
     resources :users, only: [:update]
-    resources :shifts, only: [:index, :create]
+    resources :shifts, only: [:index, :create, :edit, :destroy, :update]
   end
    get 'login', to: 'sessions#new'
    post 'login', to: 'sessions#create'
